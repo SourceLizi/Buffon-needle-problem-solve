@@ -29,7 +29,11 @@ const double pi=3.141592653589;
 				//y_pin[0]=random(-1000,1000);
 			x_pin[1]=x_pin[0]+cos(angle);
 				//y_pin[1]=y_pin[0]+sin(angle);
-			if((int)(x_pin[0]/ratio)!=(int)(x_pin[1]/ratio)) cross_time++;
+			if((fmod(x_pin[0],ratio)==0)||(fmod(x_pin[1],ratio)==0)){
+				cross_time++;
+			}else{
+				if((int)(x_pin[0]/ratio)!=(int)(x_pin[1]/ratio)) cross_time++;
+			}
 				//printf("%d\n",cross_time);
 				//printf("%f\n",angle);
 				//printf("(%f,%f)(%f,%f)\n",x_pin[0],y_pin[0],x_pin[1],y_pin[1]);
